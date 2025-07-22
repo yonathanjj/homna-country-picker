@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="Icon.png" type="image/png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Locations | Homna</title>
-  <meta charset="UTF-8">
-  <link rel="icon" href="Icon.png" type="image/png" />
+  <link rel="icon" href="Iconn.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Title & Basic Meta -->
@@ -15,401 +11,189 @@
   <meta name="keywords" content="Homna, construction solutions, Rwanda, Uganda, waterproofing, drainage systems, thermal insulation, Homna Rwanda, Homna Uganda">
   <meta name="author" content="Homna Ltd">
 
-  <!-- Open Graph (for social media sharing) -->
+  <!-- Open Graph & Twitter Card Meta -->
   <meta property="og:title" content="Our Locations | Homna Ltd">
   <meta property="og:description" content="Explore Homna Ltd’s presence in Rwanda and Uganda. Delivering premium construction solutions across East Africa.">
-  <meta property="og:image" content="https://www.homnaltd.com/assets/image/og-cover.jpg"> <!-- Use your actual cover image -->
+  <meta property="og:image" content="https://www.homnaltd.com/assets/image/og-cover.jpg">
   <meta property="og:url" content="https://www.homnaltd.com/locations.html">
   <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Our Locations | Homna Ltd">
   <meta name="twitter:description" content="Find our offices in Rwanda and Uganda. Homna Ltd builds your dreams, one brick at a time.">
-  <meta name="twitter:image" content="https://www.homnaltd.com/assets/image/og-cover.jpg"> <!-- Update with actual URL -->
-
-  <!-- SEO Verification (optional but common) -->
-  <meta name="msvalidate.01" content="54D327600699273278B0D9331246757C" />
-  <meta name="google-site-verification" content="ssI7C6qZe-eOJwanuESXs3cIrwWUZW54Lds_kkNuwHw">
+  <meta name="twitter:image" content="https://www.homnaltd.com/assets/image/og-cover.jpg">
 
   <!-- Fonts and Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
   <style>
     :root {
       --primary: #2a5c8a;
-      --primary-light: #3a7cb9;
       --primary-dark: #1a446b;
       --white: #ffffff;
       --off-white: #f8f9fa;
+      --border-color: #e5e7eb;
       --text: #333333;
-      --text-light: rgba(255,255,255,0.9);
-      --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      --border-radius: 12px;
-      --box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      --text-muted: #6b7280;
+      --transition: all 0.3s ease-in-out;
+      --card-shadow: 0 5px 20px rgba(0,0,0,0.07);
+      --card-shadow-hover: 0 10px 30px rgba(42, 92, 138, 0.15);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    body { background-color: var(--off-white); color: var(--text); line-height: 1.6; }
+    .page-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      color: var(--text);
-      overflow-x: hidden;
-    }
+    /* Header */
+    .page-header { padding: 2.5rem 0; text-align: center; border-bottom: 1px solid var(--border-color); }
+    .logo { height: 60px; }
 
-    .split-container {
-      display: flex;
-      height: 100vh;
-      position: relative;
-    }
+    /* Main Content */
+    main { padding: 4rem 0; text-align: center; }
+    main h1 { font-size: 2.5rem; font-weight: 500; margin-bottom: 1rem; }
+    main h1 strong { font-weight: 700; color: var(--primary-dark); }
+    main .subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 4rem auto; }
 
-    .country-section {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      overflow: hidden;
-      transition: var(--transition);
-      will-change: width;
-    }
+    /* Location Showcase */
+    .location-showcase { display: flex; align-items: center; gap: 3rem; }
+    .map-container { flex: 1.2; position: relative; }
+    .map-container img { width: 100%; height: auto; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); }
+    .info-container { flex: 1; display: flex; flex-direction: column; gap: 2rem; }
 
-    .country-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      transition: var(--transition);
-    }
+    /* Location Pointers */
+    .location-pointer { position: absolute; width: 18px; height: 18px; background-color: var(--primary); border: 2px solid var(--white); border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 15px rgba(42, 92, 138, 0.6); cursor: pointer; transition: transform 0.2s ease; }
+    .location-pointer:hover { transform: translate(-50%, -50%) scale(1.3); }
+    .location-pointer::after { content: ''; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; border-radius: 50%; background-color: var(--primary); transform: translate(-50%, -50%); animation: pulse 2s infinite ease-out; z-index: -1; }
+    @keyframes pulse { 0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; } 100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; } }
+    #pointer-rwanda { top: 51.5%; left: 58%; }
+    #pointer-uganda { top: 49%; left: 60.5%; }
 
-    .rwanda {
-      width: 60%;
-      background-image: url('2.jpg');
-    }
+    /* New Info Card Design */
+    .info-card { background: var(--white); border-radius: 16px; box-shadow: var(--card-shadow); transition: var(--transition); text-align: left; overflow: hidden; border: 1px solid var(--border-color); }
+    .info-card.active, .info-card:hover { transform: translateY(-8px); box-shadow: var(--card-shadow-hover); }
 
-    .uganda {
-      width: 40%;
-      background-image: url('1.png');
-    }
+    .info-card-header { background-color: #fcfdff; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 0.75rem; }
+    .info-card-header .flag { font-size: 1.5rem; }
+    .info-card-header h2 { font-size: 1.5rem; color: var(--primary-dark); }
 
-    .country-section.active {
-      width: 70%;
-    }
+    .info-card-body { padding: 1.5rem; }
+    .contact-item { display: flex; align-items: center; margin-bottom: 1rem; }
+    .contact-item:last-child { margin-bottom: 0; }
+    .contact-item a { color: var(--text-muted); text-decoration: none; display: flex; align-items: center; transition: color 0.3s; font-size: 0.95rem; }
+    .contact-item a:hover { color: var(--primary); }
+    .contact-item i { margin-right: 12px; width: 18px; text-align: center; color: var(--primary); font-size: 1.1rem; }
 
-    .country-section.inactive {
-      width: 30%;
-    }
+    .info-card-footer { padding: 0 1.5rem 1.5rem; display: flex; gap: 1rem; }
 
-    .country-section:hover::before {
-      background: rgba(0,0,0,0.35);
-    }
+    /* New Button Styles */
+    .btn { display: flex; align-items: center; justify-content: center; flex: 1; padding: 0.75rem 1rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: var(--transition); border: 2px solid transparent; }
+    .btn i { margin-right: 8px; }
 
-    .divider {
-      position: absolute;
-      left: 60%;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--white);
-      z-index: 10;
-      transition: var(--transition);
-      opacity: 0.7;
-    }
+    .btn-primary { background-color: var(--primary); color: var(--white); }
+    .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
 
-    .content {
-      position: relative;
-      z-index: 2;
-      color: var(--white);
-      max-width: 80%;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    .btn-secondary { background-color: transparent; color: var(--primary); border-color: var(--primary); }
+    .btn-secondary:hover { background-color: var(--primary); color: var(--white); transform: translateY(-2px); }
 
-    .contact-card {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: var(--border-radius);
-      padding: 1.5rem;
-      margin: 2rem 0;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: var(--box-shadow);
-      border: 1px solid rgba(255,255,255,0.1);
-      text-align: left;
-    }
+    /* Footer */
+    footer { text-align: center; padding: 2.5rem 0; margin-top: 4rem; border-top: 1px solid var(--border-color); color: #777; font-size: 0.9rem; }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-      color: var(--text-light);
-      transition: var(--transition);
-    }
-
-    .contact-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .contact-item a {
-      color: var(--text-light);
-      text-decoration: none;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      width: 100%;
-    }
-
-    .contact-item a:hover {
-      color: var(--white);
-      transform: translateX(5px);
-    }
-
-    .contact-item i {
-      margin-right: 12px;
-      width: 20px;
-      text-align: center;
-      font-size: 1.1rem;
-      color: var(--white);
-    }
-
-    .logo {
-      position: absolute;
-      top: 2rem;
-      left: 2rem;
-      height: 50px;
-      width: auto;
-      filter: brightness(0) invert(1);
-      z-index: 3;
-      transition: var(--transition);
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-      transition: var(--transition);
-      letter-spacing: -0.5px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 0;
-      line-height: 1.6;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-      transition: var(--transition);
-      max-width: 500px;
-      opacity: 0.9;
-    }
-
-    .btn {
-      padding: 1rem 2.5rem;
-      background: var(--white);
-      color: var(--primary);
-      border: 2px solid var(--white);
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: var(--box-shadow);
-      margin-top: 1rem;
-    }
-
-    .btn:hover {
-      background: transparent;
-      color: var(--white);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    }
-
-    footer {
-      position: absolute;
-      bottom: 1rem;
-      width: 100%;
-      text-align: center;
-      color: var(--white);
-      font-size: 0.9rem;
-      z-index: 2;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 768px) {
-      .split-container {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .country-section {
-        width: 100% !important;
-        height: 50vh;
-      }
-
-      .divider {
-        left: 0;
-        top: 50%;
-        width: 100%;
-        height: 2px;
-      }
-
-      .logo {
-        top: 1rem;
-        left: 1rem;
-        height: 40px;
-      }
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      .contact-card {
-        padding: 1.2rem;
-        margin: 1.5rem 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .content {
-        max-width: 90%;
-      }
-
-      h2 {
-        font-size: 1.8rem;
-      }
-
-      .btn {
-        padding: 0.8rem 2rem;
-      }
-    }
+    /* Responsive */
+    @media (max-width: 992px) { .location-showcase { flex-direction: column; } .map-container, .info-container { max-width: 500px; width: 100%; } }
+    @media (max-width: 480px) { .page-container { padding: 0 1rem; } main { padding: 2rem 0; } main h1 { font-size: 2rem; } .info-card-footer { flex-direction: column; } }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-<div class="split-container">
-  <!-- Logo -->
-  <img src="Icon.png" alt="Homna Logo" class="logo">
 
-  <!-- Rwanda Section (60%) -->
-  <div class="country-section rwanda" id="rwanda">
-    <div class="content">
-      <h2>Homna Rwanda</h2>
-      <p>Premium solutions for Rwandan businesses and consumers</p>
+<div class="page-container">
+  <header class="page-header">
+    <a href="/"><img src="Icon.png" alt="Homna Logo" class="logo"></a>
+  </header>
 
-      <div class="contact-card">
-        <div class="contact-item">
-          <a href="tel:+250791920763">
-            <i class="fas fa-phone"></i>
-            <span>+250 791 920 763</span>
-          </a>
+  <main>
+    <h1>Select your <strong>location</strong></h1>
+    <p class="subtitle">We have a strong presence in East Africa. Hover over a location or card to see more details and find useful links.</p>
+
+    <div class="location-showcase">
+
+      <div class="map-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Africa_%28orthographic_projection%29.svg" alt="Map of Africa">
+        <div class="location-pointer" id="pointer-rwanda" data-location="rwanda"></div>
+        <div class="location-pointer" id="pointer-uganda" data-location="uganda"></div>
+      </div>
+
+      <div class="info-container">
+        <!-- Rwanda Info Card -->
+        <div class="info-card" data-location-info="rwanda">
+          <div class="info-card-header">
+            <span class="flag">🇷🇼</span>
+            <h2>Homna Rwanda</h2>
+          </div>
+          <div class="info-card-body">
+            <div class="contact-item"><a href="tel:+250791920763"><i class="fa-solid fa-phone"></i><span>+250 791 920 763</span></a></div>
+            <div class="contact-item"><a href="mailto:info@homnaltd.com"><i class="fa-solid fa-envelope"></i><span>info@homnaltd.com</span></a></div>
+            <div class="contact-item"><a href="https://maps.google.com/maps?q=mainoffice+remera+1+kk+st.+4+mnamn" target="_blank"><i class="fa-solid fa-map-marker-alt"></i><span>Head Office: KG 125 St, Remera</span></a></div>
+          </div>
+          <div class="info-card-footer">
+            <a href="https://rwanda.homnaltd.com/" target="_blank" class="btn btn-primary">Visit Website</a>
+          </div>
         </div>
-        <div class="contact-item">
-          <a href="mailto:info@homnaltd.com">
-            <i class="fas fa-envelope"></i>
-            <span>info@homnaltd.com</span>
-          </a>
-        </div>
-        <div class="contact-item">
-            <a href="https://maps.google.com/maps?q=mainoffice+remera+1+kk+st.+4+mnamn" target="_blank" class="location-link">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Head Office: KG 125 St, Rukiri II, Remera, Gasabo</span>
-          </a>
+
+        <!-- Uganda Info Card -->
+        <div class="info-card" data-location-info="uganda">
+          <div class="info-card-header">
+            <span class="flag">🇺🇬</span>
+            <h2>Homna Uganda</h2>
+          </div>
+          <div class="info-card-body">
+            <div class="contact-item"><a href="tel:+256712345678"><i class="fa-solid fa-phone"></i><span>+256 712 345 678</span></a></div>
+            <div class="contact-item"><a href="mailto:info@homnaltd.com"><i class="fa-solid fa-envelope"></i><span>info@homnaltd.com</span></a></div>
+            <div class="contact-item"><a href="https://maps.google.com?q=Plot+123,+Kampala+Road,+Uganda" target="_blank"><i class="fa-solid fa-map-marker-alt"></i><span>Plot 123, Kampala Road</span></a></div>
+          </div>
+          <div class="info-card-footer">
+            <a href="https://uganda.homnaltd.com/" target="_blank" class="btn btn-primary">Visit Website</a>
+          </div>
         </div>
       </div>
 
-      <a href="https://rwanda.homnaltd.com/" class="btn">Visit Website</a>
     </div>
-    <footer>&copy; 2023 Homna. All rights reserved.</footer>
-  </div>
+  </main>
 
-  <!-- Vertical Divider -->
-  <div class="divider" id="divider"></div>
-
-  <!-- Uganda Section (40%) -->
-  <div class="country-section uganda" id="uganda">
-    <div class="content">
-      <h2>Homna Uganda</h2>
-      <p>Innovative products serving the Ugandan market</p>
-
-      <div class="contact-card">
-        <div class="contact-item">
-          <a href="tel:+256712345678">
-            <i class="fas fa-phone"></i>
-            <span>+256 712 345 678</span>
-          </a>
-        </div>
-        <div class="contact-item">
-          <a href="mailto:info@homnaltd.com">
-            <i class="fas fa-envelope"></i>
-            <span>info@homnaltd.com</span>
-          </a>
-        </div>
-        <div class="contact-item">
-          <a href="https://maps.google.com?q=Plot+123,+Kampala+Road,+Uganda" target="_blank">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Plot 123, Kampala Road, Uganda</span>
-          </a>
-        </div>
-      </div>
-
-      <a href="https://uganda.homnaltd.com/" class="btn">Visit Website</a>
-    </div>
-  </div>
+  <footer>
+    <p>© 2023 Homna Ltd. All rights reserved.</p>
+  </footer>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const rwanda = document.getElementById('rwanda');
-    const uganda = document.getElementById('uganda');
-    const divider = document.getElementById('divider');
+  document.addEventListener('DOMContentLoaded', () => {
+    const pointers = document.querySelectorAll('.location-pointer');
+    const infoCards = document.querySelectorAll('.info-card');
 
-    // Hover effect for Rwanda
-    rwanda.addEventListener('mouseenter', function() {
-      rwanda.classList.add('active');
-      uganda.classList.add('inactive');
-      divider.style.left = '70%';
+    const activateItem = (location) => {
+      infoCards.forEach(card => card.classList.remove('active'));
+      const activeCard = document.querySelector(`.info-card[data-location-info="${location}"]`);
+      if (activeCard) activeCard.classList.add('active');
+    };
+
+    pointers.forEach(pointer => {
+      pointer.addEventListener('mouseenter', () => activateItem(pointer.dataset.location));
     });
 
-    rwanda.addEventListener('mouseleave', function() {
-      rwanda.classList.remove('active');
-      uganda.classList.remove('inactive');
-      divider.style.left = '60%';
+    infoCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+          infoCards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+      });
     });
 
-    // Hover effect for Uganda
-    uganda.addEventListener('mouseenter', function() {
-      uganda.classList.add('active');
-      rwanda.classList.add('inactive');
-      divider.style.left = '30%';
-    });
-
-    uganda.addEventListener('mouseleave', function() {
-      uganda.classList.remove('active');
-      rwanda.classList.remove('inactive');
-      divider.style.left = '60%';
-    });
+    const showcase = document.querySelector('.location-showcase');
+    if (showcase) {
+      showcase.addEventListener('mouseleave', () => {
+        infoCards.forEach(card => card.classList.remove('active'));
+      });
+    }
   });
 </script>
+
 </body>
 </html>
