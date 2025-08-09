@@ -31,9 +31,9 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
   <style>
-    :root {
-      --primary: #2a5c8a;
-      --primary-dark: #1a446b;
+     :root {
+      --primary: #1A237E;
+      --primary-dark: #1A237E;
       --white: #ffffff;
       --off-white: #f8f9fa;
       --border-color: #e5e7eb;
@@ -42,7 +42,8 @@
       --text-light: rgba(255, 255, 255, 0.9);
       --transition: all 0.3s ease-in-out;
       --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
-      --card-shadow-hover: 0 10px 30px rgba(42, 92, 138, 0.2);
+      /* Updated the shadow to match the new primary color */
+      --card-shadow-hover: 0 10px 30px rgba(26, 35, 126, 0.2);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
@@ -59,11 +60,11 @@
     #map { flex: 1.2; height: 550px; border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow); background-color: #eaf2f7; z-index: 5; }
     .location-marker-container { cursor: pointer; position: relative; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; }
     .leaflet-div-icon { background: transparent; border: none; margin-left: -24px !important; margin-top: -24px !important; }
-    .location-pointer { position: absolute; top: 50%; left: 50%; width: 18px; height: 18px; background-color: var(--primary); border: 2px solid var(--white); border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 15px rgba(42, 92, 138, 0.6); transition: transform 0.2s ease; z-index: 10; }
+    .location-pointer { position: absolute; top: 50%; left: 50%; width: 18px; height: 18px; background-color: var(--primary); border: 2px solid var(--white); border-radius: 50%; transform: translate(-50%, -50%); /* Updated the shadow to match the new primary color */ box-shadow: 0 0 15px rgba(26, 35, 126, 0.6); transition: transform 0.2s ease; z-index: 10; }
     .leaflet-marker-icon.active .location-pointer, .location-marker-container:hover .location-pointer { transform: translate(-50%, -50%) scale(1.4); }
     .location-pointer::after { content: ''; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; border-radius: 50%; background-color: var(--primary); transform: translate(-50%, -50%); animation: pulse 2s infinite ease-out; z-index: -1; }
     @keyframes pulse { 0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; } 100% { transform: translate(-50%, -50%) scale(3); opacity: 0; } }
-    .location-label { position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); background-color: rgba(26, 68, 107, 0.9); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.9rem; font-weight: 600; white-space: nowrap; box-shadow: 0 2px 5px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; z-index: 20; }
+    .location-label { position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); /* Updated the background to match the new primary color */ background-color: rgba(26, 35, 126, 0.9); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.9rem; font-weight: 600; white-space: nowrap; box-shadow: 0 2px 5px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; z-index: 20; }
     .leaflet-marker-icon.active .location-label, .location-marker-container:hover .location-label { opacity: 1; visibility: visible; }
     .info-container { flex: 1; display: flex; flex-direction: column; gap: 2rem; }
     .info-card { position: relative; border-radius: 16px; box-shadow: var(--card-shadow); transition: var(--transition); text-align: left; overflow: hidden; color: var(--white); min-height: 263px; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; background-size: cover; background-position: center; border: 3px solid transparent; }
@@ -102,16 +103,16 @@
             <h2><span class="flag">🇷🇼</span>Homna Rwanda</h2>
             <div class="contact-item"><a href="tel:+250791920763"><i class="fa-solid fa-phone"></i><span>+250 791 920 763</span></a></div>
             <div class="contact-item"><a href="mailto:info@homnaltd.com"><i class="fa-solid fa-envelope"></i><span>info@homnaltd.com</span></a></div>
-            <div class="contact-item"><a href="https://maps.app.goo.gl/u7m4FjC5m9Sg2Tz79" target="_blank"><i class="fa-solid fa-map-marker-alt"></i><span>Head Office: KG 125 St, Remera</span></a></div>
+<div class="contact-item"><a href="https://maps.google.com?q=KG+125+St,+Remera,+Rwanda" target="_blank"><i class="fa-solid fa-map-marker-alt"></i><span>Head Office: KG 125 St, Remera</span></a></div>
             <div class="info-card-footer"> <a href="https://rwanda.homnaltd.com/" target="_blank" class="btn-primary">Visit Website</a> </div>
           </div>
         </div>
         <div class="info-card card-uganda" data-location-info="uganda">
           <div class="card-content">
             <h2><span class="flag">🇺🇬</span>Homna Uganda</h2>
-            <div class="contact-item"><a href="tel:+256712345678"><i class="fa-solid fa-phone"></i><span>+256 712 345 678</span></a></div>
+            <div class="contact-item"><a href="tel: +256 771 681 005"><i class="fa-solid fa-phone"></i><span> +256 771 681 005</span></a></div>
             <div class="contact-item"><a href="mailto:info@homnaltd.com"><i class="fa-solid fa-envelope"></i><span>info@homnaltd.com</span></a></div>
-            <div class="contact-item"><a href="https://maps.google.com?q=Plot+123,+Kampala+Road,+Uganda" target="_blank"><i class="fa-solid fa-map-marker-alt"></i><span>Plot 123, Kampala Road</span></a></div>
+<div class="contact-item"><a href="https://maps.google.com?q=6th+St,+Industrial+Area,+Plot+95A,+Uganda" target="_blank"><i class="fa-solid fa-map-marker-alt"></i><span>6th St, Industrial Area, Plot 95A</span></a></div>
             <div class="info-card-footer"> <a href="https://uganda.homnaltd.com/" target="_blank" class="btn-primary">Visit Website</a> </div>
           </div>
         </div>
